@@ -28,7 +28,7 @@ const Login = () => {
             {showError && (
               <Alert variant="danger">Invalid email or password.</Alert>
             )}
-            <Form className="m-3" onSubmit={handleSubmit}>
+            <Form border="warning" className="m-3" onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control

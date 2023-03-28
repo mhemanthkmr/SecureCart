@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import abi from "../contracts/SecureCart.json";
+import { NavLink } from "react-router-dom";
 
 function BrandExample() {
   const [isWalletInstalled, setIsWalletInstalled] = useState(null);
@@ -65,8 +66,15 @@ function BrandExample() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto p-2">
-              <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
-              <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
+              <NavLink className="nav-link" to="/login">
+                  Login
+              </NavLink>
+              <NavLink className="nav-link" to="/register">
+                  Register
+              </NavLink>
+              <NavLink className="nav-link" to="/products">
+                  Products
+              </NavLink>
             </Nav>
             <>
               {isWalletInstalled !== true && account === null && (

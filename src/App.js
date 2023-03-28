@@ -5,6 +5,7 @@ import Login from "./pages/LoginPage";
 import Register from "./pages/RegisterPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Products } from "./pages/product";
+import "hover.css";
 
 function App() {
   return (
