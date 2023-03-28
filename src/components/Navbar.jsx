@@ -1,10 +1,11 @@
 import { Button, ButtonGroup } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import abi from "../ContractABI/SecureCart.json";
-// import logo from "/light-bulb.png";
+import abi from "../contracts/SecureCart.json";
+
 function BrandExample() {
   const [isWalletInstalled, setIsWalletInstalled] = useState(null);
   const [account, setAccount] = useState(null);
@@ -49,7 +50,7 @@ function BrandExample() {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" expand="lg" variant="dark">
         <Container>
           <Navbar.Brand href="#home">
             <img
@@ -61,25 +62,36 @@ function BrandExample() {
             />
             SecureCart
           </Navbar.Brand>
-          {isWalletInstalled !== true && account === null && (
-            <Button disabled variant="warning" onClick={connectToMetamask}>
-              Install Metamask
-            </Button>
-          )}
-          {isWalletInstalled == true && account === null && (
-            <Button onClick={connectToMetamask}>Connect</Button>
-          )}
-          {isWalletInstalled === true && account !== null && (
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto p-2">
+              <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
+              <Nav.Link className="nav-link" href="/register">Register</Nav.Link>
+            </Nav>
             <>
-              <ButtonGroup>
-                <Button className="" disabled onClick={connectToMetamask}>
-                  Connected{" "}
-                  {account.slice(0, 4) + "...." + account.slice(-5, -1)}
+              {isWalletInstalled !== true && account === null && (
+                <Button disabled variant="warning" onClick={connectToMetamask}>
+                  Install Metamask
                 </Button>
-                <Button variant="secondary">{balance.slice(0, 6)} ETH</Button>
-              </ButtonGroup>
+              )}
+              {isWalletInstalled == true && account === null && (
+                <Button onClick={connectToMetamask}>Connect</Button>
+              )}
+              {isWalletInstalled === true && account !== null && (
+                <>
+                  <ButtonGroup>
+                    <Button className="" disabled onClick={connectToMetamask}>
+                      Connected{" "}
+                      {account.slice(0, 4) + "...." + account.slice(-5, -1)}
+                    </Button>
+                    <Button variant="secondary">
+                      {balance.slice(0, 6)} ETH
+                    </Button>
+                  </ButtonGroup>
+                </>
+              )}
             </>
-          )}
+          </Navbar.Collapse>
         </Container>
       </Navbar>
       {/* <Body account={account} /> */}
