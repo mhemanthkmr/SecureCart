@@ -1,11 +1,14 @@
 // import logo from './logo.svg';
 import "./App.css";
 import ProductCard from "./components/ProdutCard";
+import AddCategory from "./pages/AddCategory";
 import Login from "./pages/LoginPage";
 import Register from "./pages/RegisterPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Products } from "./pages/product";
 import "hover.css";
+import ProductAdd from "./pages/ProductAdd";
+import ViewCategory from "./pages/ViewCategory";
 
 function App() {
   return (
@@ -14,12 +17,13 @@ function App() {
     // <Login />
     // <Register />
     <Routes>
-      {/* <Route path='/' element={<Navigate to='/login' />} />- */}
       <Route path="/products" element={<Products />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/category/add" element={<AddCategory />} />
+      <Route path="/category/view" element={<ViewCategory />} />
+      <Route path="/product/add" element={<ProductAdd />} />
     </Routes>
-
   );
 }
 

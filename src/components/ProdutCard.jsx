@@ -8,7 +8,7 @@ const ProductCard = ({ image, title, price }) => {
     <Col className="my-3" sm={6} md={4} lg={3} >
       <Container className="">
         <Card className="hvr-bob" style={{ width: "20rem" }}>
-          <Card.Img variant="top" src={image} alt={title} />
+          <Card.Img width="250px" variant="top" src={image} alt={title} />
           <Card.Body>
             <Card.Title><h6>{title}</h6></Card.Title>
             <Card.Text>Price: ${price}</Card.Text>
