@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/securecart/static/css/main.6c673543.css",
+    "main.js": "/securecart/static/js/main.e97da8cf.js",
+    "index.html": "/securecart/index.html",
+    "main.6c673543.css.map": "/securecart/static/css/main.6c673543.css.map",
+    "main.e97da8cf.js.map": "/securecart/static/js/main.e97da8cf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c673543.css",
+    "static/js/main.e97da8cf.js"
+  ]
+}
