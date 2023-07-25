@@ -17,12 +17,12 @@ function App() {
     // <Login />
     // <Register />
     <Routes>
-      <Route path="/products" element={<Products />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/category/add" element={<AddCategory />} />
-      <Route path="/category/view" element={<ViewCategory />} />
-      <Route path="/product/add" element={<ProductAdd />} />
+      <Route path="/SecureCart/products" element={<Products />} />
+      <Route path="/SecureCart/login" element={<Login />} />
+      <Route path="/SecureCart/register" element={<Register />} />
+      <Route path="/SecureCart/category/add" element={<AddCategory />} />
+      <Route path="/SecureCart/category/view" element={<ViewCategory />} />
+      <Route path="/SecureCart/product/add" element={<ProductAdd />} />
     </Routes>
   );
 }
