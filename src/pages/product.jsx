@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import { Row } from 'react-bootstrap'
-import ProductCard from '../components/ProdutCard'
-import abi from '../contracts/SecureCart.json'  
+import { Row } from "react-bootstrap";
+import ProductCard from "../components/ProdutCard";
+import abi from "../contracts/SecureCart.json";
 
 // const allProducts = [{
 //     "id": 1,
@@ -157,8 +157,6 @@ import abi from '../contracts/SecureCart.json'
 //     "image_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIzSURBVDjLhZNLbxJRGIZP22la6KLpou1GN11QKGW4DFTH1phorZcYi8R6w2ooAlUSjUStC39A49I/4sK9f8OFLoyCwZAAgsMwc87x9RuoSXWgLt7MvGfO+3zfnAsDwAaJT0094+PjlojHTc7YpWHz/g4x5hELCx16Qm5eg9zOQGZzEMeOQyQSsLze8v8Ab2TqOuTT55C5R5CPS5ClPYhsAfJJCXY0htbkZH4ggFp+LYIq5I00RDoDQz+DRlxHM3YSxsoq+K27EDt5WDMzlsmY5gIIn0/Il6+ocpECazDip2BrOuzYCViRBMzoCgT9El+/gEYgUHN3MDLSlMktCFKTQk5QRCgUjoOHYugsRyC3bqObvodv09NlF8DWtKYsvYDM5NCmijycgFA1iOUoeDAMM6BCXEmiq6+ioihv3YC5OdlbtJ0cOlHqgKryYAR8SYXtD/UAMr+LzvZ9VP3+7y6AMT//rq1R1UIRfOMyTAKYTnAxSOEQOLXe2kziq28RHxnbG7iNrdnZ991kCuJmGnK3CJmiNblKPvOAdiCHaiSKT4pybug5qDO2VB4bQ23tNIyNi+CFhzDObqC+fh5lVcXnQIAfeZB68nqloSiojI7ii67jA73XJibQIG8zJo8GeDxZUAeShi3ST+fzP/4HY9nhAMYscTC5Q2oxViFfOeQdgDUQ8IuxO04l+wBg9kP75PcP+V4XbZrrAlC4TmpRxarTBV0sy3ZuZ18W78OrpBYB639yvwHcmnk0jmx5QwAAAABJRU5ErkJggg=="
 //   }]
 
-
-
 // async function listProducts()
 // {
 //   const provider = new ethers.BrowserProvider(window.ethereum);
@@ -186,50 +184,50 @@ import abi from '../contracts/SecureCart.json'
 //   setProducts(ESPData);
 // }
 
-
-
 export const Products = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => async () =>  {
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const SecureCart = await new ethers.Contract(
-      "0xA25F490787B456D1e48b53A0a7C16a7E438aBCb6",
-      abi.abi,
-      provider
-    );
-  
-    const tokenName = await SecureCart.listProducts();
-  
-    console.log(tokenName);
-    
-    console.log(products);
+  useEffect(
+    () => async () => {
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const SecureCart = await new ethers.Contract(
+        "0x6bFE4fFc341215c035AF31697a8B0566356D2830",
+        abi.abi,
+        provider
+      );
 
-    const ESPData = tokenName.map((product) => ({
-      product_id: product.id.toString(),
-      product_name: product.name,
-      product_price: product.price.toString(),
-      product_quantity: product.quantity.toString(),
-      product_description: product.description,
-      product_image: product.imageUrl,
-      product_category: product.category,
-      product_owner: product.seller,
-    }));
-    console.log(ESPData);
-    setProducts(ESPData);
-  }, []);
+      const tokenName = await SecureCart.listProducts();
+
+      console.log(tokenName);
+
+      console.log(products);
+
+      const ESPData = tokenName.map((product) => ({
+        product_id: product.id.toString(),
+        product_name: product.name,
+        product_price: product.price.toString(),
+        product_quantity: product.quantity.toString(),
+        product_description: product.description,
+        product_image: product.imageUrl,
+        product_category: product.category,
+        product_owner: product.seller,
+      }));
+      console.log(ESPData);
+      setProducts(ESPData);
+    },
+    []
+  );
   return (
-    <Row className='justify-content-md-center'>
-        {products.map((product) => (
-            <ProductCard 
-                key = {product.product_id}
-                title={product.product_name}
-                description={product.product_description}
-                price={product.product_price}
-                image={product.product_image}
-            />
-        )
-        )}
+    <Row className="justify-content-md-center">
+      {products.map((product) => (
+        <ProductCard
+          key={product.product_id}
+          title={product.product_name}
+          description={product.product_description}
+          price={product.product_price}
+          image={product.product_image}
+        />
+      ))}
     </Row>
-  )
-}
+  );
+};

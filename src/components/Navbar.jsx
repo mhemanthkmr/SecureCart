@@ -66,14 +66,14 @@ function BrandExample() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto p-2">
-              <NavLink className="nav-link" to="/login">
-                  Login
+              <NavLink className="nav-link" to="/SecureCart/login">
+                Login
               </NavLink>
-              <NavLink className="nav-link" to="/register">
-                  Register
+              <NavLink className="nav-link" to="/SecureCart/register">
+                Register
               </NavLink>
-              <NavLink className="nav-link" to="/products">
-                  Products
+              <NavLink className="nav-link" to="/SecureCart/products">
+                Products
               </NavLink>
             </Nav>
             <>
